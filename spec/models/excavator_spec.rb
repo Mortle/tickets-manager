@@ -18,8 +18,13 @@
 #
 #  fk_rails_...  (ticket_id => tickets.id)
 #
-class Excavator < ApplicationRecord
-  belongs_to :ticket
+# spec/models/excavator_spec.rb
+require 'rails_helper'
 
-  validates :crew_on_site, presence: true
+RSpec.describe Excavator, type: :model do
+  # Test associations
+  it { should belong_to(:ticket) }
+
+  # Test validations
+  it { should validate_presence_of(:crew_on_site) }
 end

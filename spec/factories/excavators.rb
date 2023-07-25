@@ -18,8 +18,11 @@
 #
 #  fk_rails_...  (ticket_id => tickets.id)
 #
-class Excavator < ApplicationRecord
-  belongs_to :ticket
-
-  validates :crew_on_site, presence: true
+FactoryBot.define do
+  factory :excavator do
+    company_name { "John Doe CONSTRUCTION" }
+    crew_on_site { true }
+    full_address { "555 Some RD, SOME PARK, ZZ, 55555" }
+    association :ticket
+  end
 end

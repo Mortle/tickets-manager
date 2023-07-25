@@ -14,10 +14,13 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
-class Ticket < ApplicationRecord
-  has_one :excavator
+# spec/models/ticket_spec.rb
+require 'rails_helper'
 
-  accepts_nested_attributes_for :excavator
+RSpec.describe Ticket, type: :model do
+  # Test associations
+  it { should have_one(:excavator) }
 
-  validates :request_number, presence: true
+  # Test validations
+  it { should validate_presence_of(:request_number) }
 end

@@ -49,8 +49,10 @@ gem "bootsnap", require: false
 # gem "image_processing", "~> 1.2"
 
 group :development, :test do
-  # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri mingw x64_mingw ]
+  # Debugging
+  gem "pry", "~> 0.14.2"
+
+  gem "factory_bot_rails", "~> 6.2.0"
 end
 
 group :development do
@@ -67,3 +69,8 @@ group :development do
   gem 'annotate', "~> 3.2.0"
 end
 
+group :test do
+  # Test suite
+  gem "rspec-rails", "~> 4.0.2"
+  gem 'shoulda-matchers', "~> 5.3.0"
+end
