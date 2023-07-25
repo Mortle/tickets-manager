@@ -19,5 +19,5 @@ class Ticket < ApplicationRecord
 
   accepts_nested_attributes_for :excavator
 
-  validates :request_number, presence: true
+  validates :request_number, presence: true, uniqueness: true
 end

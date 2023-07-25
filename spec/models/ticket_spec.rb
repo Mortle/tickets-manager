@@ -18,9 +18,12 @@
 require 'rails_helper'
 
 RSpec.describe Ticket, type: :model do
+  subject { FactoryBot.create(:ticket, request_number: '123abc') }
+
   # Test associations
   it { should have_one(:excavator) }
 
   # Test validations
   it { should validate_presence_of(:request_number) }
+  it { should validate_uniqueness_of(:request_number) }
 end

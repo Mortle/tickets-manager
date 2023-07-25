@@ -23,6 +23,5 @@ FactoryBot.define do
     company_name { "John Doe CONSTRUCTION" }
     crew_on_site { true }
     full_address { "555 Some RD, SOME PARK, ZZ, 55555" }
-    association :ticket
   end
 end
