@@ -51,6 +51,10 @@ gem "bootsnap", require: false
 # Business logic encapsulation
 gem 'interactor', "~> 3.0"
 
+# Styling
+gem "bootstrap", "~> 5.0.0"
+gem "sassc-rails", "~> 2.1.2"
+
 group :development, :test do
   # Debugging
   gem "pry", "~> 0.14.2"
