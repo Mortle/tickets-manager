@@ -24,7 +24,7 @@ class Api::V1::TicketsController < Api::BaseController
         :PrimaryServiceAreaCode => [:SACode],
         :AdditionalServiceAreaCodes => [:SACode]
       ],
-      :DigsiteInfo => [:WellKnownText],
+      :ExcavationInfo => [:DigsiteInfo => [:WellKnownText]],
       :Excavator => [
         :CompanyName,
         :Address,

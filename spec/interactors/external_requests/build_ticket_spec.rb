@@ -21,8 +21,10 @@ RSpec.describe ExternalRequests::BuildTicket, type: :interactor do
           ]
         }
       },
-      "DigsiteInfo" => {
-        "WellKnownText" => "POLYGON((...))"
+      "ExcavationInfo" => {
+        "DigsiteInfo" => {
+          "WellKnownText" => "POLYGON((...))"
+        }
       },
       "Excavator" => {
         "CompanyName" => "John Doe CONSTRUCTION",
@@ -62,7 +64,7 @@ RSpec.describe ExternalRequests::BuildTicket, type: :interactor do
       expect(context.ticket.response_due_timestamp).to eq(DateTime.parse(permitted_params["DateTimes"]["ResponseDueDateTime"]))
       expect(context.ticket.primary_sa_code).to eq(permitted_params.dig("ServiceArea", "PrimaryServiceAreaCode", "SACode"))
       expect(context.ticket.additional_sa_codes).to eq(permitted_params.dig("ServiceArea", "AdditionalServiceAreaCodes", "SACode"))
-      expect(context.ticket.polygon).to eq(permitted_params.dig("DigsiteInfo", "WellKnownText"))
+      expect(context.ticket.polygon).to eq(permitted_params.dig("ExcavationInfo", "DigsiteInfo", "WellKnownText"))
       expect(context.ticket.external_data).to eq(raw_data)
     end
 

@@ -20,4 +20,11 @@ class Ticket < ApplicationRecord
   accepts_nested_attributes_for :excavator
 
   validates :request_number, presence: true, uniqueness: true
+  validate :valid_polygon_format, if: -> { polygon.present? }
+
+  private
+
+  def valid_polygon_format
+    errors.add(:polygon, 'is not in the correct format') unless polygon&.match?(/POLYGON\(\((-?\d+(\.\d+)?\s-?\d+(\.\d+)?,?)+\)\)/)
+  end
 end

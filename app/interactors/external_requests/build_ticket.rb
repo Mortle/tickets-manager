@@ -12,7 +12,7 @@ class ExternalRequests::BuildTicket
       response_due_timestamp: permitted_params.dig(:DateTimes, :ResponseDueDateTime),
       primary_sa_code: permitted_params.dig(:ServiceArea, :PrimaryServiceAreaCode, :SACode),
       additional_sa_codes: build_additional_sa_codes,
-      polygon: permitted_params.dig(:DigsiteInfo, :WellKnownText),
+      polygon: permitted_params.dig(:ExcavationInfo, :DigsiteInfo, :WellKnownText),
       excavator_attributes: {
         company_name: permitted_params.dig(:Excavator, :CompanyName),
         full_address: build_full_address,
