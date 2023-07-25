@@ -1,0 +1,38 @@
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%= link_to 'Tickets', tickets_path %></li>
+      <li class="breadcrumb-item active" aria-current="page"><%= @ticket.request_number %></li>
+    </ol>
+  </nav>
+
+  <h1>Ticket <%= @ticket.request_number %></h1>
+  <div class="card mb-4">
+    <div class="card-body">
+      <h5 class="card-title">Request Number: <%= @ticket.request_number %></h5>
+      <p class="card-text">Request Type: <%= @ticket.request_type.presence || '-' %></p>
+      <p class="card-text">Sequence Number: <%= @ticket.sequence_number.presence || '-' %></p>
+      <p class="card-text">Primary SA Code: <%= @ticket.primary_sa_code.presence || '-' %></p>
+      <p class="card-text">Additional SA Codes: <%= @ticket.additional_sa_codes.join(', ').presence || '-' %></p>
+      <p class="card-text">Response Due: <%= @ticket.response_due_timestamp.presence || '-' %></p>
+      <button class="btn btn-secondary mb-2" type="button" data-bs-toggle="collapse" data-bs-target="#externalData" aria-expanded="false" aria-controls="externalData">
+        Toggle External Data
+      </button>
+
+      <div class="collapse" id="externalData">
+        <div class="card card-body" style="max-height: 300px; overflow: auto;">
+          <pre><%= JSON.pretty_generate(@ticket.external_data) %></pre>
+        </div>
+      </div>
+      <hr>
+      <h5 class="card-title">Excavator</h5>
+      <p class="card-text">Company: <%= @ticket.excavator.company_name.presence || '-' %></p>
+      <p class="card-text">Address: <%= @ticket.excavator.full_address.presence || '-' %></p>
+      <p class="card-text">Crew on Site: <%= @ticket.excavator.crew_on_site ? 'Yes' : 'No' %></p>
+    </div>
+  </div>
+
+  <% if @ticket.polygon.present? %>
+    <div id="map" style="height: 400px;" data-polygon='<%= format_polygon_data(@ticket) %>'></div>
+  <% end %>
+</div>

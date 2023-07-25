@@ -1,0 +1,30 @@
+<div class="container">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item active" aria-current="page">Tickets</li>
+    </ol>
+  </nav>
+
+  <div class="row">
+    <% @tickets.each do |ticket| %>
+      <div class="col-md-4">
+        <div class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">
+              Request Number: <%= link_to ticket.request_number, ticket_path(ticket) %>
+            </h5>
+            <h6 class="card-subtitle mb-2 text-muted">Request Type: <%= ticket.request_type.presence || '-' %></h6>
+            <h6 class="card-subtitle mb-2 text-muted">Sequence Number: <%= ticket.sequence_number.presence || '-' %></h6>
+            <h6 class="card-subtitle mb-2 text-muted">Primary SA Code: <%= ticket.primary_sa_code.presence || '-' %></h6>
+            <h6 class="card-subtitle mb-2 text-muted">Response Due: <%= ticket.response_due_timestamp.presence || '-' %></h6>
+            <hr>
+            <h6 class="card-subtitle mb-2 text-muted">Excavator Details</h6>
+            <p class="card-text">Company: <%= ticket.excavator.company_name.presence || '-' %></p>
+            <p class="card-text">Address: <%= ticket.excavator.full_address.presence || '-' %></p>
+            <p class="card-text">Crew on Site: <%= ticket.excavator.crew_on_site ? 'Yes' : 'No' %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
