@@ -1,0 +1,72 @@
+require:
+  - rubocop-rails
+  - rubocop-rspec
+
+Bundler/OrderedGems:
+  Enabled: false
+
+Layout/LineLength:
+  Max: 140
+  IgnoredPatterns: ['\A#']
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Layout/MultilineOperationIndentation:
+  EnforcedStyle: indented
+
+Layout/SpaceInsideHashLiteralBraces:
+  EnforcedStyle: no_space
+
+Lint/AmbiguousBlockAssociation:
+  Enabled: false
+
+Lint/AmbiguousOperatorPrecedence:
+  Enabled: false
+
+Lint/AmbiguousRange:
+  Enabled: false
+
+Lint/ConstantDefinitionInBlock:
+  Enabled: false
+
+Lint/EmptyBlock:
+  Exclude:
+    - 'spec/factories/*'
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Max: 150
+
+Metrics/MethodLength:
+  CountAsOne: ['array', 'hash', 'heredoc']
+  Exclude:
+    - 'db/migrate/*'
+
+RSpec/ExampleLength:
+  Max: 10
+
+RSpec/NestedGroups:
+  Max: 4
+
+RSpec/MultipleExpectations:
+  Max: 7
+
+Style/ClassAndModuleChildren:
+  Enabled: true
+  EnforcedStyle: nested
+
+Style/Documentation:
+  Enabled: false
+
+Style/GlobalVars:
+  AllowedVariables:
+    - $now
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/OpenStructUse:
+  Enabled: false

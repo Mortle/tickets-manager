@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: excavators
@@ -20,8 +22,8 @@
 #
 FactoryBot.define do
   factory :excavator do
-    company_name { "John Doe CONSTRUCTION" }
+    company_name { 'John Doe CONSTRUCTION' }
     crew_on_site { true }
-    full_address { "555 Some RD, SOME PARK, ZZ, 55555" }
+    full_address { '555 Some RD, SOME PARK, ZZ, 55555' }
   end
 end

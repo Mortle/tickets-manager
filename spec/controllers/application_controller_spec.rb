@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe ApplicationController, type: :controller do
@@ -10,7 +12,7 @@ RSpec.describe ApplicationController, type: :controller do
   describe 'handling ActiveRecord::RecordNotFound exceptions' do
     it 'responds with json format' do
       get :index, format: :json
-      expect(response.body).to eq({ error: 'Record not found' }.to_json)
+      expect(response.body).to eq({error: 'Record not found'}.to_json)
       expect(response).to have_http_status(:not_found)
     end
 

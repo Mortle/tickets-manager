@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 Rails.application.routes.draw do
   resources :tickets, only: %i[index show]
 
@@ -8,5 +10,5 @@ Rails.application.routes.draw do
     end
   end
 
-  root "tickets#index"
+  root 'tickets#index'
 end

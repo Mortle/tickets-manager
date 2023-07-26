@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: excavators
@@ -23,8 +25,8 @@ require 'rails_helper'
 
 RSpec.describe Excavator, type: :model do
   # Test associations
-  it { should belong_to(:ticket) }
+  it { is_expected.to belong_to(:ticket) }
 
   # Test validations
-  it { should validate_presence_of(:crew_on_site) }
+  it { is_expected.to validate_presence_of(:crew_on_site) }
 end

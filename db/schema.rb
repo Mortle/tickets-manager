@@ -35,6 +35,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_07_25_152356) do
     t.datetime "response_due_timestamp"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["request_number"], name: "index_tickets_on_request_number", unique: true
   end
 
   add_foreign_key "excavators", "tickets"

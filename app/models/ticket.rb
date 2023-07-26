@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: tickets
@@ -14,8 +16,12 @@
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
 #
+# Indexes
+#
+#  index_tickets_on_request_number  (request_number) UNIQUE
+#
 class Ticket < ApplicationRecord
-  has_one :excavator
+  has_one :excavator, dependent: :destroy
 
   accepts_nested_attributes_for :excavator
 

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class CreateTickets < ActiveRecord::Migration[7.0]
   def change
     create_table :tickets do |t|
@@ -15,5 +17,7 @@ class CreateTickets < ActiveRecord::Migration[7.0]
 
       t.timestamps
     end
+
+    add_index :tickets, :request_number, unique: true
   end
 end
